@@ -119,4 +119,4 @@ nmap <scan types> <options> <target>
 
 # Mission Complete
 
-![alt text](../assets/Done2.gif)
+![alt text](../assets/Done.gif)
