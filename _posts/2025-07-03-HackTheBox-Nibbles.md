@@ -1,5 +1,5 @@
 ---
-title: HackTheBox - Nibbles Write-Up
+title: HackTheBox - Nibbles WriteUp
 date: 2025-07-03 19:19:00 +/-0100
 categories: [Machines]
 tags: [CTF,HackTheBox]
