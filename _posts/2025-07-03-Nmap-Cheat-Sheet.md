@@ -87,6 +87,36 @@ nmap <scan types> <options> <target>
 
 ## Performance
 
+- **rtt** → **Round trip Time** → Time receive a response from the scanned port.  
+
+- Default value for the retry rate is **10**.
+
 | Command | Description|
 |--------|------------|
-|  |
+| `--min-rtt-timeout 100ms` | Sets the specified time value as Min RTT timeout. |
+| `--max-rtt-timeout 100ms` | Sets the specified time value as Max RTT timeout |
+| `--initial-rtt-timeout 50ms` | Sets the specified time value as initial RTT timeout. |
+| `--max-retries 0` | Sets the number of retries that will be performed during the scan. |
+| `--min-rate 300` | Sets the minimum number of packets to be sent per second. |
+| `-T <0-6>` | Time template to use |
+
+### Time Template
+
+![alt text](../assets/img/CPTS-Cheat-Sheets/Nmap/Time-Template.png)
+
+**Source [here](https://nmap.org/book/performance-timing-templates.html)**
+
+## Firewall and IDS/IPS Evasion
+
+| Command | Description|
+|--------|------------|
+| `nmap 192.168.1.1 -D 192.168.1.35, 192.168.1.26, 192.168.1.13, 192.168.1.100 ` | Decoys. Send scans from spoofed IPs |
+| `-D RND:5` | Generate five random IPs that indicates the source IP the connection comes from |
+| `-S <IP>` | Scans the target by using different source IP address. |
+| `-e tun0` | Sends all requests through the specified interface. |
+| `--source-port <Port Number>` | Perform the scans from the specified source port |
+
+
+# Mission Complete
+
+![alt text](../assets/Done2.gif)
