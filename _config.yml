@@ -16,7 +16,7 @@ timezone: Africa/Casablanca
 
 title: 0xkrakeNN # the main title
 
-tagline: Penetration testing enthusiast # it will display as the subtitle
+tagline: Pentesting enthusiast # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
   A minimal, responsive and feature-rich Jekyll theme for technical writing.

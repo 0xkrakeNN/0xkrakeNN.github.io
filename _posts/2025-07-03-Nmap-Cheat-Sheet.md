@@ -98,7 +98,7 @@ nmap <scan types> <options> <target>
 | `--initial-rtt-timeout 50ms` | Sets the specified time value as initial RTT timeout. |
 | `--max-retries 0` | Sets the number of retries that will be performed during the scan. |
 | `--min-rate 300` | Sets the minimum number of packets to be sent per second. |
-| `-T <0-6>` | Time template to use |
+| `-T <0-5>` | Time template to use |
 
 ### Time Template
 
