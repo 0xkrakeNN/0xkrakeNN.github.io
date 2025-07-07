@@ -55,3 +55,12 @@ description:
 | `queryuser <RID>` | Provide information about specific user |
 | `querygroup <RID>` | Provide information about a specific group |
 
+**Source:** [RPCCLIENT](https://www.samba.org/samba/docs/current/man-html/rpcclient.1.html)
+
+## NFS
+
+| Command | Description |
+|--------|------------|
+| `showmount -e <IP/FQDN> ` | Show available Shares |
+| `sudo mount -t nfs <IP/FQDN>:/<FileShare> ./target-nfs -o nolock` | Mount the specific NFS share |
+| `umount ./target-NFS` | Unmount The specific NFS Share |
