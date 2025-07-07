@@ -56,4 +56,3 @@ description:
 | `querygroup <RID>` | Provide information about a specific group |
 
 **Source** : [RPCCLIENT](https://www.samba.org/samba/docs/current/man-html/rpcclient.1.html)
-
