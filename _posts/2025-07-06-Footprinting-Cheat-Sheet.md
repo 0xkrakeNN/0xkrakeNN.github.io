@@ -29,3 +29,31 @@ description:
 | ftp> `MKD` <Directory_Name> | Create a Directory |
 | ftp> `RMD` <Directory_Name> | Remove a Directory |
 | ftp> `wget -m --no-passive ftp://<Username>:<Password>@<IP>` | Download all available files |
+
+## SMB
+
+| Command | Description |
+|--------|------------|
+| `smbclient //<IP/FQDM>/<Share>` | Connect to a specific share |
+| `smbclient -N -L //<IP/FQDN>` | List shares using Anonymous Login |
+|smb> `get <File_Name>` | Download a File |
+| `impacket-samrdump <IP>` | Brute forcing User RIDs → Enumerate Users |
+| `smbmap -H <IP>` | Enumerate Shares |
+| `crackmapexec smb <IP> --shares -u '' -p '' ` | Enumerate Shares using null session authentication|
+| `enum4linux-ng.py <IP/FQDN> -A` | SMB enumeration using enum4linux |
+| `rpcclient -U '' <IP/FQDN>`| Interacting with the target using RPC |
+
+### RPCCLEINT Functions to execute
+
+| Command | Description |
+|--------|------------|
+| `srvinfo` | server information |
+| `enumdomains` | enumerate all domains that are deployed on the network  |
+| `querydominfo` | Provides domain, server, and user information of deployed domains |
+| `netsharegetinfo <share>` | Provide information about specific share |
+| `enumdomusers` | Enumerate all domain users | 
+| `queryuser <RID>` | Provide information about specific user |
+| `querygroup <RID>` | Provide information about a specific group |
+
+**Source** : [RPCCLIENT](https://www.samba.org/samba/docs/current/man-html/rpcclient.1.html)
+
