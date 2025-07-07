@@ -55,4 +55,3 @@ description:
 | `queryuser <RID>` | Provide information about specific user |
 | `querygroup <RID>` | Provide information about a specific group |
 
-**Source** : [RPCCLIENT](https://www.samba.org/samba/docs/current/man-html/rpcclient.1.html)
