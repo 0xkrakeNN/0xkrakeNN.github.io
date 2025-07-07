@@ -29,4 +29,3 @@ description:
 | ftp> `MKD` <Directory_Name> | Create a Directory |
 | ftp> `RMD` <Directory_Name> | Remove a Directory |
 | ftp> `wget -m --no-passive ftp://<Username>:<Password>@<IP>` | Download all available files |
-
