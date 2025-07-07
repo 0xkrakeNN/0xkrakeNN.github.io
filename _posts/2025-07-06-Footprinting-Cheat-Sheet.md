@@ -47,11 +47,11 @@ description:
 
 | Command | Description |
 |--------|------------|
-| rpcclient $> `srvinfo` | server information |
-| rpcclient $> `enumdomains` | enumerate all domains that are deployed on the network  |
-| rpcclient $> `querydominfo` | Provides domain, server, and user information of deployed domains |
-| rpcclient $> `netsharegetinfo <share>` | Provide information about specific share |
-| rpcclient $> `enumdomusers` | Enumerate all domain users | 
-| rpcclient $> `queryuser <RID>` | Provide information about specific user |
-| rpcclient $> `querygroup <RID>` | Provide information about a specific group |
+| `srvinfo` | server information |
+| `enumdomains` | enumerate all domains that are deployed on the network  |
+| `querydominfo` | Provides domain, server, and user information of deployed domains |
+| `netsharegetinfo <share>` | Provide information about specific share |
+| `enumdomusers` | Enumerate all domain users | 
+| `queryuser <RID>` | Provide information about specific user |
+| `querygroup <RID>` | Provide information about a specific group |
 
