@@ -64,3 +64,17 @@ description:
 | `showmount -e <IP/FQDN> ` | Show available Shares |
 | `sudo mount -t nfs <IP/FQDN>:/<FileShare> ./target-nfs -o nolock` | Mount the specific NFS share |
 | `umount ./target-NFS` | Unmount The specific NFS Share |
+
+## DNS
+
+| Command | Description |
+|--------|------------|
+| `dig ns <Domain.tld> @<Nameserver>` | NS Query to the specified nameserver |
+| `dig any <Domain.tld> @<Nameserver>` | Any Query to the specified nameserver |
+| `dig CH TXT version.bind @<Nameserver>` | Version Query to the specified nameserver |
+| `dig axfr @<Nameserver>` | AXFR Query (Zone transfer) from a specified nameserver |
+| `dnsenum --dnsserver <Nameserver> --enum -p 0 -s 0 -o found_subdomains.txt -f ~/subdomains.list <Domain.tld>` | Subdomain brute forcing |
+
+> - An `AXFR` request retrieves a complete copy of a zone's DNS records from an authoritative server.  
+- The `CHAOS` class (shortened as CH) is one of the original DNS classes, introduced alongside the more common IN (Internet) class. While the IN class is used for almost all modern DNS lookups (A, AAAA, CNAME, etc.), the CHAOS class serves a special diagnostic/debugging purpose (`version.bind`, `hostname.bind`, `authors.bind`).
+{: .prompt-info }
