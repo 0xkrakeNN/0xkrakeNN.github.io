@@ -158,6 +158,3 @@ More CMDs [HERE](https://www.atmail.com/blog/imap-commands/)
 | POP3> `LIST` | Request from the server the number and size of all emails. |
 | POP3> `RETR <ID>` | Retrieve the requested email by ID |
 | POP3> `QUIT` | Close the connection |
-
-
-## SNMP
