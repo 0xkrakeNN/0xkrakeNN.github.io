@@ -158,3 +158,11 @@ More CMDs [HERE](https://www.atmail.com/blog/imap-commands/)
 | POP3> `LIST` | Request from the server the number and size of all emails. |
 | POP3> `RETR <ID>` | Retrieve the requested email by ID |
 | POP3> `QUIT` | Close the connection |
+
+## SNMP
+
+| Command | Description |
+|--------|------------|
+| `onesixtyone -c /usr/share/seclists/Discovery/SNMP/snmp.txt <IP @>` | Brute-force the names of the community strings. |
+| `snmpwalk -v2c -c <community string> <IP>  ` | Query the OIDs with their information. |
+| `braa <community string>@<IP>:.1.3.6.*` | Bruteforcing SNMP service OIDs. |
