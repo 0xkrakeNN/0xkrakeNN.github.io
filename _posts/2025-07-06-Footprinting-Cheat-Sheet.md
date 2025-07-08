@@ -78,3 +78,50 @@ description:
 > - An `AXFR` request retrieves a complete copy of a zone's DNS records from an authoritative server.  
 - The `CHAOS` class (shortened as CH) is one of the original DNS classes, introduced alongside the more common IN (Internet) class. While the IN class is used for almost all modern DNS lookups (A, AAAA, CNAME, etc.), the CHAOS class serves a special diagnostic/debugging purpose (`version.bind`, `hostname.bind`, `authors.bind`).
 {: .prompt-info }
+
+## SMTP
+
+| Command | Description |
+|--------|------------|
+| `telnet <IP/FQDM> <Port>` | Connect to the SMTP Server 
+|smtp> `HELO <Hostname>` | Login the Computer Name. → Start the session |
+|smtp> `AUTH PLAIN <\0USERNAME\0PASWORD>`| Authenticate the client. The creds should be encrypted in **base64** |
+| smtp> `MAIL FROM: <krakenn@gmail.com>` | Sender Mail |
+| smtp>  `RECPT TO: <victim@gmail.com> NOTIFY=success,failure`| Recepient Mail + notification on success or failure (We can remove it) |
+| smtp> `DATA` | Start Email content transmission |
+| smtp> `RST` | The client cancels the ongoing transmission while maintaining the connection with the server. |
+| smtp> `VRFY krakenn` | Checks if a mailbox exists. (Can be used for users enumeration) |
+| mstp> `NOOP` | Sends a harmless command to the server to keep the session alive. |
+| smtp> `QUIT` | Close the connection. |
+
+### SMTP Command example
+
+```bash
+┌──(krakenn㉿Phoenix)-[~]
+└─$ telnet 10.129.21.32 25
+Trying 10.129.21.32...
+Connected to 10.129.21.32.
+Escape character is '^]'.
+HELO phoenix.local 
+220 InFreight ESMTP v2.11
+250 mail1
+MAIL FROM: <krakenn@gmail.com>
+250 2.1.0 Ok
+RCPT TO: <Victim@gmail.com> NOTIFY=success,failure
+250 2.1.5 Ok
+DATA
+354 End data with <CR><LF>.<CR><LF>
+FROM: <spoofedmail@gmail.com>
+TO: <victim@gmail.com>
+Subject: Password reset      
+Date: Mon, 07 July 2025 16:48:00 +0100
+Hello, you need to change your password
+Click here to change it.
+.
+250 2.0.0 Ok: queued as 344B4125F
+QUIT
+221 2.0.0 Bye
+Connection closed by foreign host.
+```
+
+You can check status codes [HERE](https://serversmtp.com/smtp-error/)
