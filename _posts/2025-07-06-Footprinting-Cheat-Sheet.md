@@ -125,3 +125,37 @@ Connection closed by foreign host.
 ```
 
 You can check status codes [HERE](https://serversmtp.com/smtp-error/)
+
+## IMAP/POP3
+
+### IMAP
+
+| Command | Description |
+|--------|------------|
+| `curl -k 'imaps://<IP/FQDN>' --user <Username>:<Password>` | Login to THE IMAPS service using cURL |
+| `openssl s_client -connect <FQDN/IP>:imaps` | Connect to IMAPS service over SSL |
+| IMAP> `A1 LOGIN <Username> <Password>` | Login using creds | 
+| IMAP> `A1 LIST "" *` | List all directories |
+| IMAP> `A1 CREATE "<Mailbox_Name>"` | Create a Mailbox |
+| IMAP> `A1 DELETE "<Mailbox_Name>"` | Delete a Mailbox |
+| IMAP> `A1 RENAME "<Mailbox_Name>" "<New_Mailbox_Name>"` | Rename a mailbox or a folder |
+| IMAP> `A1 LSUB "" *`  | List mailboxes that the user is subscribed to |
+| IMAP> `A1 SELECT <Mailbox>` | Select a mailbox to access the messages it contains |
+| IMAP> `A1 UNSELECT <Mailbox>` | Exit the mailbox |
+| IMAP> `A1 FETCH <ID> all` | Retrieve message data from the mailbox |
+| IMAP> `A1 LOGOUT `| Closes the connection with the IMAP server |
+
+More CMDs [HERE](https://www.atmail.com/blog/imap-commands/) 
+
+### POP3
+
+| Command | Description |
+|--------|------------|
+| `openssl s_client -connect <FQDN/IP>:pop3s` | Connect to IMAPS service over SSL |
+| POP3>  `USER <Username>` | Identify the user using the username |
+| POP3> `PASS <Password>` | AUthenticate then user using creds provided |
+| POP3> `STAT` | Request the total count of saved emails on the server. |
+| POP3> `LIST` | Request from the server the number and size of all emails. |
+| POP3> `RETR <ID>` | Retrieve the requested email by ID |
+| POP3> `QUIT` | Close the connection |
+
