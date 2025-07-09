@@ -218,6 +218,7 @@ More CMDs [HERE](https://www.atmail.com/blog/imap-commands/)
 | `impaket-wmiexec <user>:"<password>"@<FQDN/IP> "<system command>"` | Execute command using the WMI service. |
 
 
+
 # Mission complete
 
 ![alt text](../assets/Done.gif)
