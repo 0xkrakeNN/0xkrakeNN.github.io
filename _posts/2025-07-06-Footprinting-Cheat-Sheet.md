@@ -184,3 +184,5 @@ More CMDs [HERE](https://www.atmail.com/blog/imap-commands/)
 | `impacket-mssqlclient <Username>@<IP> -windows-auth` | Log in to the MSSQL server using Windows authentication. |
 | MSSQL> `SELECT NAME FROM  SYS.DATABASES` | List existent DBs |
 | MSQL> `USE <Database_Name>` | Select a DB |
+
+Done
