@@ -217,6 +217,7 @@ More CMDs [HERE](https://www.atmail.com/blog/imap-commands/)
 | `evil-winrm -i <FQDN/IP> -u <user> -p <password>` | Log in to the WinRM server. |
 | `impaket-wmiexec <user>:"<password>"@<FQDN/IP> "<system command>"` | Execute command using the WMI service. |
 
-# Done
+
+# Mission complete
 
 ![alt text](../assets/Done.gif)
