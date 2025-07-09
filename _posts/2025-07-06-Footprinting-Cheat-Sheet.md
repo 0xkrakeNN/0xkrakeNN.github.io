@@ -185,5 +185,38 @@ More CMDs [HERE](https://www.atmail.com/blog/imap-commands/)
 | MSSQL> `SELECT NAME FROM  SYS.DATABASES` | List existent DBs |
 | MSQL> `USE <Database_Name>` | Select a DB |
 
+## ORACLE TNS
 
-Done
+| Command | Description |
+|--------|------------|
+| `./odat.py all -s <FQDN/IP>` | Perform a variety of scans to gather information about the Oracle database services and its components. | 
+| `sqlplus <user>/<pass>@<FQDN/IP>/<db>` | Log in to the Oracle database. |
+| `./odat.py utlfile -s <FQDN/IP> -d <db> -U <user> -P <pass> --sysdba --putFile C:\\insert\\path file.txt ./file.txt` | Upload a file with Oracle RDBMS. |
+
+## IPMI
+
+| Command | Description |
+|--------|------------|
+| `msf6 auxiliary(scanner/ipmi/ipmi_version)` | IPMI version detection |
+| `msf6 auxiliary(scanner/ipmi/ipmi_dumphashes)` | Dump IPMI hashes. |
+
+## Linux Remote Management Protocol
+
+| Command | Description |
+|--------|------------|
+| `./ssh-audit.py <IP/FQDN>` | Remote security audit against the target SSH service. |
+| `ssh <user>@<IP/FQDN>` | Log in to the SSH server using the SSH client. |
+| `ssh <user>@<IP/FQDN> -o PreferredAuthentications=password` | Enforce password-based authentication. |
+
+## Windows Remote Management
+
+| Command | Description |
+|--------|------------|
+| `rdp-sec-check.pl <FQDN/IP>` | Check the security settings of the RDP service. |
+| `xfreerdp /u:<user> /p:"<password>" /v:<FQDN/IP>` | Log in to the RDP server from Linux. |
+| `evil-winrm -i <FQDN/IP> -u <user> -p <password>` | Log in to the WinRM server. |
+| `impaket-wmiexec <user>:"<password>"@<FQDN/IP> "<system command>"` | Execute command using the WMI service. |
+
+# Done
+
+![alt text](../assets/Done.gif)
