@@ -166,3 +166,22 @@ More CMDs [HERE](https://www.atmail.com/blog/imap-commands/)
 | `onesixtyone -c /usr/share/seclists/Discovery/SNMP/snmp.txt <IP @>` | Brute-force the names of the community strings. |
 | `snmpwalk -v2c -c <community string> <IP>  ` | Query the OIDs with their information. |
 | `braa <community string>@<IP>:.1.3.6.*` | Bruteforcing SNMP service OIDs. |
+
+## MySQL
+
+| Command | Description |
+|--------|------------|
+| `mysql -u <Username> -p<Passowrd> -h <IP>` | Login to MySQL Server. |
+| MySQL> `SHOW DATABASES;` | Show all DBs |
+| MySQL> `user <DB_Name>` | Select a DB |
+| MySQL> `SHOW COLUMNS FROM <Table_Name>` | Show all columns from a specified table |
+| MySQL> `SELECT * FROM <Table_Name>` | Show all data of a table |
+
+## MSSQL
+
+| Command | Description |
+|--------|------------|
+| `impacket-mssqlclient <Username>@<IP> -windows-auth` | Log in to the MSSQL server using Windows authentication. |
+| MSSQL> `SELECT NAME FROM  SYS.DATABASES` | List existent DBs |
+| MSQL> `USE <Database_Name>` | Select a DB |
+
