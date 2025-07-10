@@ -5,7 +5,7 @@ categories: [CPTS Modules Skills Assessments]
 tags: [CPTS,Skills Assessments,HackTheBox,Nmap]
 image: /assets/img/Modules-Skills-Assessments/Nmap/Nmap.png
 description: 
-    In this post, I share my experience completing the Nmap skills assessment module. From host discovery to port scanning and version detection, I walk through practical use cases and key takeaways.
+    In this post, I share my experience completing the Footprinting skills assessment module.
 ---
 
 
