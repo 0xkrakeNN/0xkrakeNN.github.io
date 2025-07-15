@@ -1,5 +1,5 @@
 ---
-title: Network Enumeration with Nmap - Cheat Sheet
+title: Footprinting - Cheat Sheet
 date: 2025-07-06 19:00:00 +/-0100
 categories: [CPTS Modules Cheat Sheets]
 tags: [CPTS,HackTheBox, Cheat Sheet]
