@@ -2,7 +2,7 @@
 title: HackTheBox - Active WriteUp
 date: 2025-07-16 15:22:00 +/-0100
 categories: [Machines] 
-tags: [CTF,HackTheBox]
+tags: [CTF,HackTheBox, Active Directory, Kerberoasting]
 image: /assets/img/Machines/Active/Active.png  # SIZE 1200:630
 description: 
     This post documents my walkthrough of the Active machine from Hack The Box. It involves Active Directory enumeration, SMB share analysis, Group Policy Preference exploitation, and Kerberoasting to ultimately gain administrator access.

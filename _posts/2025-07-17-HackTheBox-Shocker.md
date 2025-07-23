@@ -2,7 +2,7 @@
 title: HackTheBox - Shocker WriteUp
 date: 2025-07-18 16:00:00 +/-0100
 categories: [Machines] 
-tags: [CTF,HackTheBox]
+tags: [CTF,HackTheBox, Shellshock, CGI]
 image: /assets/img/Machines/Shocker/Shocker.png  # SIZE 1200:630
 description: 
     This post documents my walkthrough of the Shocker machine from Hack The Box. It involves exploiting the Shellshock vulnerability through a vulnerable CGI script, gaining initial access via command injection, spawning a stable shell, and performing privilege escalation by exploiting misconfigured sudo permissions to ultimately gain root access.
