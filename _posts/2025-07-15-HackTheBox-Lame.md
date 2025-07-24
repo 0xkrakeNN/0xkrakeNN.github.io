@@ -2,7 +2,7 @@
 title: HackTheBox - Lame WriteUp
 date: 2025-07-15 14:37:00 +/-0100
 categories: [Machines] 
-tags: [CTF,HackTheBox]
+tags: [CTF,HackTheBox, CVE]
 image: /assets/img/Machines/Lame/Lame.png  # SIZE 1200:630
 description: 
     This post documents my walkthrough of the Lame machine from Hack The Box. It involves basic enumeration, exploitation of a Samba vulnerability.

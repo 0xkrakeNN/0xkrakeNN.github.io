@@ -2,7 +2,7 @@
 title: HackTheBox - Grandpa WriteUp
 date: 2025-07-22 15:30:00 +/-0100
 categories: [Machines] 
-tags: [CTF,HackTheBox, IIS, Webdav]
+tags: [CTF,HackTheBox, IIS, Webdav, CVE]
 image: /assets/img/Machines/Grandpa/Grandpa.png  # SIZE 1200:630
 description: 
     This post documents my walkthrough of the Grandpa machine from Hack The Box. The machine exploits a known vulnerability in Microsoft IIS 6.0, specifically the WebDAV ScStoragePathFromUrl buffer overflow. The exploitation process involves identifying the outdated Windows Server 2003 system, leveraging a public Metasploit exploit to gain a reverse shell, perform Privilege Escalation, and then retrieving the user and root flags from the compromised system.
