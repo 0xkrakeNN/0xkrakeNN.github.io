@@ -475,8 +475,6 @@ Stopped: Wed Jul 16 18:34:01 2025
 - Now, let’s try to use PsExec, as the `Administrator` account may have administrative privileges on the target machine.
 - **Note:** It’s common to find service accounts with administrative rights due to misconfigurations in many Active Directory environments.
 
-### PsExec
-
 ```bash
 ┌──(krakenn㉿Phoenix)-[~/CPTS/Boxes/Active]
 └─$ impacket-psexec active.htb/Administrator@10.10.10.100
