@@ -5,7 +5,7 @@ categories: [Machines]
 tags: [CTF,HackTheBox, IIS, Webdav, CVE]
 image: /assets/img/Machines/Grandpa/Grandpa.png  # SIZE 1200:630
 description: 
-    This post documents my walkthrough of the Grandpa machine from Hack The Box. The machine exploits a known vulnerability in Microsoft IIS 6.0, specifically the WebDAV ScStoragePathFromUrl buffer overflow. The exploitation process involves identifying the outdated Windows Server 2003 system, leveraging a public Metasploit exploit to gain a reverse shell, perform Privilege Escalation, and then retrieving the user and root flags from the compromised system.
+    This post documents my walkthrough of the SwagShop machine from Hack The Box. The machine exploits vulnerabilities in a Magento 1.9 web application to gain initial access. The process involves identifying the outdated application, leveraging known exploits to obtain a shell, performing privilege escalation, and retrieving the user and root flags.
 ---
 
 ## Enumeration
